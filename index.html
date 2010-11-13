@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>A jQuery 'Hello World'</title>
+	<meta name="author" content="Dave Sag">
+	<script type="text/javascript" src="scripts/jquery-1.4.4.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("a").click(function(event){
+				alert("Actually I'd rather you didn't visit that website yet!");
+				event.preventDefault();
+				$(this).hide("slow");
+			});
+			// some pointless crap
+			$("a").addClass("test");	// add a css class
+			$("a").removeClass("test"); // and remove it
+			
+			// menu stuff
+			var toggle = function(direction, display) {
+		    return function() {
+		      var self = this;
+		      var ul = $("ul", this);
+		      if( ul.css("display") == display && !self["block" + direction] ) {
+		        self["block" + direction] = true;
+		        ul["slide" + direction]("slow", function() {
+		          self["block" + direction] = false;
+		        });
+		      }
+		    };
+		  }
+		  $("li.menu").hover(toggle("Down", "none"), toggle("Up", "block"));
+		  $("li.menu ul").hide();
+		
+			$.getJSON('test_data/categories.json', function(data) {
+				var r = '<ul>';
+				for (var i = 0; i < data.length; i++) {
+					var cat = data[i].category
+					r += '<li>' + cat.name + (cat.has_acts ? ' has acts' : ' has no acts') + '</li>'
+				}
+				r += '</ul>'
+			  $('.result').html(r);
+			});
+		});
+	</script>
+</head>
+<body>
+	<a href="https://github.com/davesag/jQuery-Tests">Get the Source Code</a>
+
+	<select id="title_prefix">
+	   <option value="1">Mr</option>
+	   <option value="2">Mrs</option>
+	   <option value="3">Ms</option>
+	   <option value="4">Dr</option>
+	   <option value="5">Prof</option>
+	 </select>
+	 <input type="button" value="Get Text" onclick="alert($('#title_prefix option:selected').text())"/>
+	 <input type="button" value="Get Value" onclick="alert($('#title_prefix').val())"/>
+
+	<p>Simple Nav Menu tests</p>
+	
+	<ul id="a_menu">
+	  <li class="menu">Ohhh that's Bouncy
+	    <ul>
+	      <li>Yes</li>
+	      <li>It</li>
+	      <li>Sure</li>
+	      <li>is</li>
+	    </ul>
+	  </li>
+	  <li class="menu">and sooooh is this one
+	    <ul>
+	      <li>Oh</li>
+	      <li>My</li>
+	      <li>That's</li>
+	      <li>Ridiculous</li>
+	    </ul>
+	  </li>
+	</ul>
+
+	<div class="result"></div>
+
+	</body>
+</html>
