@@ -17,7 +17,7 @@
 			$("a").addClass("test");	// add a css class
 			$("a").removeClass("test"); // and remove it
 			
-			// menu stuff
+			// some silly bouncy menu stuff
 			var toggle = function(direction, display) {
 		    return function() {
 		      var self = this;
@@ -34,10 +34,10 @@
 		  $("li.menu ul").hide();
 		
 			$.getJSON('test_data/categories.json', function(data) {
-				var r = '<ul>';
+				var r = '<p>There are ' + data.length + ' categories.</p><ul>';
 				for (var i = 0; i < data.length; i++) {
 					var cat = data[i].category
-					r += '<li>' + cat.name + (cat.has_acts ? ' has acts' : ' has no acts') + '</li>'
+					r += '<li>' + cat.name + ' has ' + (cat.has_acts ? '' : 'no') + ' acts</li>'
 				}
 				r += '</ul>'
 			  $('.result').html(r);
