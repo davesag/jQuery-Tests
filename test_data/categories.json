@@ -1,1 +1,56 @@
-[{"category":{"name":"Ceremony","id":1,"has_acts":true}},{"category":{"name":"Dance","id":2,"has_acts":true}},{"category":{"name":"Theatre","id":3,"has_acts":true}},{"category":{"name":"Around the Festival","id":4,"has_acts":true}},{"category":{"name":"Music","id":5,"has_acts":true}},{"category":{"name":"Presenters","id":6,"has_acts":true}},{"category":{"name":"Forums","id":7,"has_acts":false}},{"category":{"name":"Workshops","id":8,"has_acts":false}},{"category":{"name":"Galleries","id":9,"has_acts":true}},{"category":{"name":"Film","id":10,"has_acts":true}},{"category":{"name":"Jarjums Kids Festival","id":11,"has_acts":false}}]
+[
+	{"category":{
+		"name":"Ceremony",
+		"id":1,
+		"has_acts":true
+	}},
+	{"category":{
+		"name":"Dance",
+		"id":2,
+		"has_acts":true
+	}},
+	{"category":{
+		"name":"Theatre",
+		"id":3,
+		"has_acts":true
+	}},
+	{"category":{
+		"name":"Around the Festival",
+		"id":4,
+		"has_acts":true
+	}},
+	{"category":{
+		"name":"Music",
+		"id":5,
+		"has_acts":true}},
+	{"category":{
+		"name":"Presenters",
+		"id":6,
+		"has_acts":true
+	}},
+	{"category":{
+		"name":"Forums",
+		"id":7,
+		"has_acts":false
+	}},
+	{"category":{
+		"name":"Workshops",
+		"id":8,
+		"has_acts":false
+	}},
+	{"category":{
+		"name":"Galleries",
+		"id":9,
+		"has_acts":true
+		}},
+	{"category":{
+		"name":"Film",
+		"id":10,
+		"has_acts":true
+	}},
+	{"category":{
+		"name":"Jarjums Kids Festival",
+		"id":11,
+		"has_acts":false
+	}}
+]
