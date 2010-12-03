@@ -5,7 +5,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>A jQuery 'Hello World'</title>
 	<meta name="author" content="Dave Sag">
+	<link href="css/calendar.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="scripts/jquery-1.4.4.js"></script>
+	<script type="text/javascript" src="scripts/calendar_ui.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("a").click(function(event){
@@ -33,6 +35,7 @@
 		  $("li.menu").hover(toggle("Down", "none"), toggle("Up", "block"));
 		  $("li.menu ul").hide();
 		
+		// populate a div with some data via json
 			$.getJSON('test_data/categories.json', function(data) {
 				var r = '<p>There are ' + data.length + ' categories.</p><ul>';
 				for (var i = 0; i < data.length; i++) {
@@ -42,42 +45,56 @@
 				r += '</ul>'
 			  $('.result').html(r);
 			});
+			
+			// add a calendar UI picker.
+			$('input.date_picker').simpleDatepicker();
 		});
 	</script>
 </head>
 <body>
-	<a href="https://github.com/davesag/jQuery-Tests">Get the Source Code</a>
+	<div id="first_test">
+		<a href="https://github.com/davesag/jQuery-Tests">Get the Source Code</a>
 
-	<select id="title_prefix">
-	   <option value="1">Mr</option>
-	   <option value="2">Mrs</option>
-	   <option value="3">Ms</option>
-	   <option value="4">Dr</option>
-	   <option value="5">Prof</option>
-	 </select>
-	 <input type="button" value="Get Text" onclick="alert($('#title_prefix option:selected').text())"/>
-	 <input type="button" value="Get Value" onclick="alert($('#title_prefix').val())"/>
+		<select id="title_prefix">
+		   <option value="1">Mr</option>
+		   <option value="2">Mrs</option>
+		   <option value="3">Ms</option>
+		   <option value="4">Dr</option>
+		   <option value="5">Prof</option>
+		 </select>
+		 <input type="button" value="Get Text" onclick="alert($('#title_prefix option:selected').text())"/>
+		 <input type="button" value="Get Value" onclick="alert($('#title_prefix').val())"/>
+	</div>
 
-	<p>Simple Nav Menu tests</p>
+	<div id="calendartest">
+		<form>
+			<label for="due_date">Due Date</label>
+			<input class="date_picker" id="due_date" name="due_date">
+		</form>
+	</div>
+
+	<div id="second_test">
+		<p>Simple Nav Menu tests</p>
 	
-	<ul id="a_menu">
-	  <li class="menu">Ohhh that's Bouncy
-	    <ul>
-	      <li>Yes</li>
-	      <li>It</li>
-	      <li>Sure</li>
-	      <li>is</li>
-	    </ul>
-	  </li>
-	  <li class="menu">and sooooh is this one
-	    <ul>
-	      <li>Oh</li>
-	      <li>My</li>
-	      <li>That's</li>
-	      <li>Ridiculous</li>
-	    </ul>
-	  </li>
-	</ul>
+		<ul id="a_menu">
+		  <li class="menu">Ohhh that's Bouncy
+		    <ul>
+		      <li>Yes</li>
+		      <li>It</li>
+		      <li>Sure</li>
+		      <li>is</li>
+		    </ul>
+		  </li>
+		  <li class="menu">and sooooh is this one
+		    <ul>
+		      <li>Oh</li>
+		      <li>My</li>
+		      <li>That's</li>
+		      <li>Ridiculous</li>
+		    </ul>
+		  </li>
+		</ul>
+	</div>
 
 	<div class="result"></div>
 
